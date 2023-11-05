@@ -19,7 +19,7 @@
 
 name: Concurrency Test 2
 on:
-  #Triggers the workflow on push or pull request events but only for the master branch
+  # Triggers the workflow on push or pull request events but only for the master branch
   # push:
   #   branches: [ master ]
   # pull_request:
@@ -36,16 +36,12 @@ concurrency:
   # If this is enabled it will cancel current running and start latest
   cancel-in-progress: true
 
-
 jobs:
    build-and-test-on-pr:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      
-# Adding sleep time to keep one running and trigger 2nd to check concurrency
+      # Adding sleep time to keep one running and trigger 2nd to check concurrency
       - name: Build and code sim
         run: |
           echo "Starting the code build"
