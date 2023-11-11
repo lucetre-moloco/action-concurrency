@@ -15,6 +15,9 @@ jobs:
   concurrency-test1:
     name: Concurrency Test 1
     uses: lucetre/action-concurrency/.github/workflows/reusable-workflow.yaml@main
+    concurrency:
+      group: lock-lucetre
+      cancel-in-progress: false
     with:
       username: lucetre
 
@@ -22,6 +25,9 @@ jobs:
     needs: wait
     name: Concurrency Test 2
     uses: lucetre/action-concurrency/.github/workflows/reusable-workflow.yaml@main
+    concurrency:
+      group: lock-aslan
+      cancel-in-progress: false
     with:
       username: aslan
 
@@ -29,11 +35,17 @@ jobs:
     needs: wait
     name: Concurrency Test 3
     uses: lucetre/action-concurrency/.github/workflows/reusable-workflow.yaml@main
+    concurrency:
+      group: lock-aslan
+      cancel-in-progress: false
     with:
       username: aslan
 
   concurrency-test4:
     name: Concurrency Test 4
     uses: lucetre/action-concurrency/.github/workflows/reusable-workflow.yaml@main
+    concurrency:
+      group: lock-lucetre
+      cancel-in-progress: false
     with:
       username: lucetre
