@@ -15,7 +15,7 @@ jobs:
   reusable-job1:
     concurrency:
       group: lock-global
-      cancel-in-progress: false
+      cancel-in-progress: true
 
     runs-on: ubuntu-latest
     strategy:
