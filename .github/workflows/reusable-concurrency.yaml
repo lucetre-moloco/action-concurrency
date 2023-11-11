@@ -31,3 +31,9 @@ jobs:
     uses: lucetre/action-concurrency/.github/workflows/reusable-workflow.yaml@main
     with:
       username: aslan
+
+  concurrency-test4:
+    name: Concurrency Test 4
+    uses: lucetre/action-concurrency/.github/workflows/reusable-workflow.yaml@main
+    with:
+      username: lucetre
