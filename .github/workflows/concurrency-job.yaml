@@ -3,11 +3,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  wait1:
-    name: Wait 1s
-    runs-on: ubuntu-latest
-    steps:
-      - run: sleep 1
+  # wait1:
+  #   name: Wait 1s
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: sleep 1
 
   wait5:
     name: Wait 5s
