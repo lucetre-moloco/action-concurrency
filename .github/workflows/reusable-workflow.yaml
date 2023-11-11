@@ -1,0 +1,34 @@
+name: Reusable Workflow
+
+on:
+  workflow_call:
+    inputs:
+      username:
+        required: true
+        type: string
+
+concurrency:
+  group: lock-${{ inputs.username }}
+  cancel-in-progress: true
+
+jobs:
+  reusable-job1:
+    concurrency:
+      group: lock-global
+      cancel-in-progress: false
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        intro: ["Hi,", "¡Hola!"]
+    steps:
+      - run: | 
+          echo ${{ matrix.intro }} ${{ inputs.username }}
+
+  reusable-job2:
+    runs-on: ubuntu-latest
+    steps:
+      - run: | 
+          echo Hello! ${{ inputs.username }}
+          echo ${{ secrets.SECRET_SEED }}
+          echo ${{ secrets.SECRET_SEED }} | sed 's/./& /g' 
