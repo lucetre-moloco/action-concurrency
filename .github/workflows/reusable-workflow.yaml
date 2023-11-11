@@ -15,9 +15,9 @@ jobs:
   reusable-job:
     name: Job - ${{ inputs.username }}
     runs-on: ubuntu-latest
-    concurrency:
-      group: lock-global
-      cancel-in-progress: false
+    # concurrency:
+    #   group: lock-global
+    #   cancel-in-progress: false
     steps:
       - name: Hello! ${{ inputs.username }}
         run: | 
