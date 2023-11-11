@@ -30,20 +30,27 @@ on:
 
 
 jobs:
-   build-and-test-on-pr:
+  wait:
+    name: Wait
     runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Wait"
+          sleep 5
 
-    # Concurrency can be used at workflow level or job level
+  job1:
+    runs-on: ubuntu-latest
     concurrency:
       group: build-and-test
-      
-      # If this is enabled it will cancel current running and start latest
-      cancel-in-progress: true
-
+      # cancel-in-progress: false
     steps:
-      # Adding sleep time to keep one running and trigger 2nd to check concurrency
-      - name: Build and code sim
-        run: |
-          echo "Starting the code build"
-          sleep 3m
-          echo "Finish the code build"
+      - run: sleep 10
+
+  job2:
+    runs-on: ubuntu-latest
+    needs: wait
+    concurrency:
+      group: build-and-test
+      # cancel-in-progress: false
+    steps:
+      - run: sleep 10
