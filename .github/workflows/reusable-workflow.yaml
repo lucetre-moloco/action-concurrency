@@ -13,11 +13,11 @@ concurrency:
 
 jobs:
   reusable-job1:
-    concurrency:
-      group: lock-global
-      cancel-in-progress: true
-
+    name: Job 1 - ${{ inputs.username }}
     runs-on: ubuntu-latest
+    concurrency:
+      group: lock-global1
+      cancel-in-progress: false
     strategy:
       matrix:
         intro: ["Hi,", "¡Hola!"]
@@ -28,7 +28,11 @@ jobs:
           sleep 5
 
   reusable-job2:
+    name: Job 2 - ${{ inputs.username }}
     runs-on: ubuntu-latest
+    concurrency:
+      group: lock-global2
+      cancel-in-progress: true
     steps:
       - name: Hello! ${{ inputs.username }}
         run: | 
