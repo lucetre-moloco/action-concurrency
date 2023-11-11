@@ -9,7 +9,7 @@ on:
 
 concurrency:
   group: lock-${{ inputs.username }}
-  # cancel-in-progress: false
+  cancel-in-progress: false
 
 jobs:
   reusable-job:
@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     concurrency:
       group: lock-global
-      # cancel-in-progress: true
+      cancel-in-progress: false
     steps:
       - name: Hello! ${{ inputs.username }}
         run: | 
