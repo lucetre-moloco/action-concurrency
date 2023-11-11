@@ -12,21 +12,20 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  reusable-job1:
-    if: false
-    name: Job 1 - ${{ inputs.username }}
-    runs-on: ubuntu-latest
-    concurrency:
-      group: lock-global1
-      cancel-in-progress: false
-    strategy:
-      matrix:
-        intro: ["Hi,", "¡Hola!"]
-    steps:
-      - name: ${{ matrix.intro }} ${{ inputs.username }}
-        run: | 
-          echo ${{ matrix.intro }} ${{ inputs.username }}
-          sleep 5
+  # reusable-job1:
+  #   name: Job 1 - ${{ inputs.username }}
+  #   runs-on: ubuntu-latest
+  #   concurrency:
+  #     group: lock-global1
+  #     cancel-in-progress: false
+  #   strategy:
+  #     matrix:
+  #       intro: ["Hi,", "¡Hola!"]
+  #   steps:
+  #     - name: ${{ matrix.intro }} ${{ inputs.username }}
+  #       run: | 
+  #         echo ${{ matrix.intro }} ${{ inputs.username }}
+  #         sleep 5
 
   reusable-job2:
     name: Job 2 - ${{ inputs.username }}
