@@ -36,7 +36,7 @@ jobs:
     name: Pause before the third job starts
     runs-on: ubuntu-latest
     steps:
-      - run: sleep 5
+      - run: sleep 3
 
   job3:
     name: Third job sensitive to the lock for execution or cancellation
