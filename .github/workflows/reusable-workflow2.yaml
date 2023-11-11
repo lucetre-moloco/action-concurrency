@@ -1,0 +1,15 @@
+name: Reusable Workflow2
+
+on:
+  workflow_call:
+    inputs:
+      username:
+        required: true
+        type: string
+
+jobs:
+  cascaded-reusable-job:
+    name: Cascaded reusable job
+    uses: lucetre/action-concurrency/.github/workflows/reusable-workflow.yaml@main
+    with:
+      username: ${{ inputs.username }}
