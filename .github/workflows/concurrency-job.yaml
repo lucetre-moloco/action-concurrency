@@ -17,7 +17,7 @@
 # Any previously pending job or workflow in the concurrency group will be canceled. To also cancel any currently running job or workflow in the same concurrency group, specify cancel-in-progress: true.
 ############################################################
 
-name: Concurrency Test 2
+name: Concurrency Test - Job
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   # push:
