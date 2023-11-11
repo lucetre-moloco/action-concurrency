@@ -38,4 +38,6 @@ jobs:
       group: lock-job
       cancel-in-progress: false
     steps:
-      - run: echo "Any previously pending job or workflow in the concurrency group will be canceled."
+      - run: |
+          echo "Any previously pending job or workflow in the concurrency group will be canceled."
+          sleep 10
