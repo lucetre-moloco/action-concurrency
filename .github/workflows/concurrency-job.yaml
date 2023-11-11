@@ -27,7 +27,7 @@ jobs:
       cancel-in-progress: false
     strategy:
       matrix:
-        iterator: [ 1, 2, 3, 4, 5 ]
+        iterator: [ 1, 2, 3 ]
     steps:
       - run: echo "Any previously pending job or workflow in the concurrency group will be canceled."
 
