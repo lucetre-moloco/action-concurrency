@@ -7,9 +7,9 @@ on:
         required: true
         type: string
 
-concurrency:
-  group: lock-${{ inputs.username }}
-  cancel-in-progress: false
+# concurrency:
+#   group: lock-${{ inputs.username }}
+#   cancel-in-progress: false
 
 jobs:
   reusable-job:
