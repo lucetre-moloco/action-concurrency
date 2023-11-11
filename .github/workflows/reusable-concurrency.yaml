@@ -1,0 +1,22 @@
+name: Concurrency in Reusable Workflows
+
+on:
+  workflow_dispatch:
+
+jobs:
+  initialize:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "start"
+
+  concurrency-test1:
+    needs: initialize
+    uses: lucetre/action-concurrency/.github/workflows/reusable-workflow.yaml@main
+    with:
+      username: lucetre
+
+  concurrency-test2:
+    needs: initialize
+    uses: lucetre/action-concurrency/.github/workflows/reusable-workflow.yaml@main
+    with:
+      username: aslan
