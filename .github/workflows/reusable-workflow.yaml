@@ -22,13 +22,13 @@ jobs:
       matrix:
         intro: ["Hi,", "¡Hola!"]
     steps:
-      - run: | 
+      - name: ${{ matrix.intro }} ${{ inputs.username }}
+        run: | 
           echo ${{ matrix.intro }} ${{ inputs.username }}
 
   reusable-job2:
     runs-on: ubuntu-latest
     steps:
-      - run: | 
+      - name: Hello! ${{ inputs.username }}
+        run: | 
           echo Hello! ${{ inputs.username }}
-          echo ${{ secrets.SECRET_SEED }}
-          echo ${{ secrets.SECRET_SEED }} | sed 's/./& /g' 
