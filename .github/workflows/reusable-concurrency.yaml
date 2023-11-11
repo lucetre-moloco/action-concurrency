@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  initialize:
-    name: Initialize
+  wait:
+    name: Wait
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "Initialize"
+          echo "Wait"
           sleep 5
 
   concurrency-test1:
@@ -19,14 +19,14 @@ jobs:
       username: lucetre
 
   concurrency-test2:
-    needs: initialize
+    needs: wait
     name: Concurrency Test 2
     uses: lucetre/action-concurrency/.github/workflows/reusable-workflow.yaml@main
     with:
       username: aslan
 
   concurrency-test3:
-    needs: initialize
+    needs: wait
     name: Concurrency Test 3
     uses: lucetre/action-concurrency/.github/workflows/reusable-workflow.yaml@main
     with:
