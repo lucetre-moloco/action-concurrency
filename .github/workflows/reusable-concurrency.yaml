@@ -14,7 +14,7 @@ jobs:
 
   concurrency-test1:
     name: Concurrency Test 1
-    uses: lucetre/action-concurrency/.github/workflows/reusable-workflow.yaml@main
+    uses: lucetre/action-concurrency/.github/workflows/reusable-workflow2.yaml@main
     concurrency:
       group: lock-lucetre
       cancel-in-progress: false
