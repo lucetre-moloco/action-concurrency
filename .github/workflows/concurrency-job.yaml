@@ -4,6 +4,7 @@ on:
 
 jobs:
   wait:
+    name: Pause before the second job starts
     runs-on: ubuntu-latest
     steps:
       - run: sleep 5
@@ -21,7 +22,7 @@ jobs:
     name: Second job sensitive to the lock for execution or cancellation
     strategy:
       matrix:
-        version: [ 1, 2, 3, 4, 5 ]
+        version: [ 1, 2, 3 ]
     runs-on: ubuntu-latest
     needs: wait
     concurrency:
@@ -30,11 +31,11 @@ jobs:
     steps:
       - run: echo "All of these are intended to execute in any order"
 
-  job3:
-    name: Third job sensitive to the lock for execution or cancellation
-    runs-on: ubuntu-latest
-    concurrency:
-      group: lock-job
-      cancel-in-progress: false
-    steps:
-      - run: echo "All of these are intended to execute in any order"
+  # job3:
+  #   name: Third job sensitive to the lock for execution or cancellation
+  #   runs-on: ubuntu-latest
+  #   concurrency:
+  #     group: lock-job
+  #     cancel-in-progress: false
+  #   steps:
+  #     - run: echo "All of these are intended to execute in any order"
