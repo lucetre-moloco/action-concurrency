@@ -34,7 +34,7 @@ jobs:
 
   job3:
     runs-on: ubuntu-latest
-    needs: wait
+    # needs: wait
     concurrency:
       group: lock-job
       cancel-in-progress: false
