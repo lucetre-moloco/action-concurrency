@@ -3,7 +3,6 @@ on:
   workflow_dispatch:
 
 jobs:
-
   job1:
     name: First job that acquires the lock
     runs-on: ubuntu-latest
