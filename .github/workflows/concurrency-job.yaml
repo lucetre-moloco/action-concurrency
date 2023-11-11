@@ -18,7 +18,7 @@ jobs:
       group: lock-job
       cancel-in-progress: false
     steps:
-      - run: sleep 10
+      - run: sleep 5
 
   job2:
     strategy:
