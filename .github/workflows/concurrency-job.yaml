@@ -18,7 +18,7 @@ jobs:
       - run: sleep 10
   
   job2:
-    name: Second job that is subject to the lock for execution or cancellation
+    name: Second job sensitive to the lock for execution or cancellation
     strategy:
       matrix:
         version: [ 1, 2, 3, 4, 5 ]
@@ -31,10 +31,10 @@ jobs:
       - run: echo "All of these are intended to execute in any order"
 
   job3:
-    name: Third job that is subject to the lock for execution or cancellation
+    name: Third job sensitive to the lock for execution or cancellation
     runs-on: ubuntu-latest
     concurrency:
       group: lock-job
       cancel-in-progress: false
     steps:
-      - run: sleep 5
+      - run: echo "All of these are intended to execute in any order"
