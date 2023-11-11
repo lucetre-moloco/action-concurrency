@@ -37,4 +37,4 @@ jobs:
       - name: Hello! ${{ inputs.username }}
         run: | 
           echo Hello! ${{ inputs.username }}
-          sleep 5
+          sleep 10
