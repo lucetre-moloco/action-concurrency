@@ -7,10 +7,11 @@ jobs:
   initialize:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "start"
+      - run: |
+          echo "initialize"
+          sleep 3
 
   concurrency-test1:
-    needs: initialize
     uses: lucetre/action-concurrency/.github/workflows/reusable-workflow.yaml@main
     with:
       username: lucetre
