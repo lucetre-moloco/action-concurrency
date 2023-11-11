@@ -9,7 +9,7 @@ on:
 
 concurrency:
   group: lock-${{ inputs.username }}
-  cancel-in-progress: false
+  # cancel-in-progress: false
 
 jobs:
   reusable-job:
