@@ -5,19 +5,29 @@ on:
 
 jobs:
   initialize:
+    name: Initialize
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "initialize"
-          sleep 3
+          echo "Initialize"
+          sleep 5
 
   concurrency-test1:
+    name: Concurrency Test 1
     uses: lucetre/action-concurrency/.github/workflows/reusable-workflow.yaml@main
     with:
       username: lucetre
 
   concurrency-test2:
     needs: initialize
+    name: Concurrency Test 2
+    uses: lucetre/action-concurrency/.github/workflows/reusable-workflow.yaml@main
+    with:
+      username: aslan
+
+  concurrency-test3:
+    needs: initialize
+    name: Concurrency Test 3
     uses: lucetre/action-concurrency/.github/workflows/reusable-workflow.yaml@main
     with:
       username: aslan
